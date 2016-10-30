@@ -1,14 +1,11 @@
 package A.Team;
 import java.util.Scanner;
 
-/**
- * Created by Chrsitan Paredes on 10/26/2016.
- */
 public class Player {
 
     private Name name;
     private Date DOB;
-    private int moneyBalance;
+    private double moneyBalance;
 
     public Player(){
         name = new Name();
@@ -31,11 +28,11 @@ public class Player {
         this.DOB = DOB;
     }
 
-    public int getMoneyBalance() {
+    public double getMoneyBalance() {
         return moneyBalance;
     }
 
-    public void setMoneyBalance(int moneyBalance) {
+    public void setMoneyBalance(double moneyBalance) {
         this.moneyBalance = moneyBalance;
     }
 

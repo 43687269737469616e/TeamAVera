@@ -1,8 +1,5 @@
 package A.Team;
 
-/**
- * Created by Christian on 10/30/2016.
- */
 public class Name {
     private String firstName;
     private char middleInitial;

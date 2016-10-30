@@ -2,11 +2,6 @@ package A.Team;
 
 import java.util.Scanner;
 
-/**
- * Created by Christian on 10/27/2016.
- */
-import java.util.Scanner;
-
 public class testClass {
 
     public static void main(String[] args)
@@ -17,7 +12,7 @@ public class testClass {
 //				int jackpotPayAmount, int regularWinOdds, int regularPayout){
 
         // Creates each of the slot machine objects
-        Machines lucky777 = new Machines("Lucky 777", 5000, 2, 5000, 10, 5);
+        Machines lucky777 = new Machines("Lucky 777", 5000, 10000, 5000, 10, 5);
         Machines luckyLotto = new Machines("Lucky Lotto", 55000, 100000, 75000, 50, 25);
         Machines purplePeopleEater = new Machines("Purple People Eater", 1000, 50, 40, 5, 2);
 

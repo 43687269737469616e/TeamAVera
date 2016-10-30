@@ -2,9 +2,7 @@ package A.Team;
 
 import java.util.Scanner;
 
-/**
- * Created by Christian on 10/18/2016.
- */
+
 public class Date {
     private int day;
     private int month;
@@ -25,7 +23,7 @@ public class Date {
             } while (day < 1 || day > 30);
         }
 
-        if (month == 2 && leapYear(this.year)) {
+        if (month == 2 && leapYear(getYear())) {
             do {
                 System.out.println("INVALID DAY INPUT");
                 System.out.println("Enter player's day of birth: ");
@@ -58,14 +56,14 @@ public class Date {
     }
 
     public void setMonth(int month) {
-        do{
-            if(month < 1 || month > 12) {
+        if(month < 1 || month > 12) {
+            do{
                 System.out.println("INVALID MONTH INPUT");
                 System.out.println("Enter player's month of birth: ");
                 month = input.nextInt();
                 this.month = month;
-            }
-        }while(month < 1 || month > 12);
+            }while(month < 1 || month > 12);
+        }
 
         this.month = month;
     }
@@ -87,15 +85,10 @@ public class Date {
                 '}';
     }
 
-    public boolean leapYear(int year){
-        if (year % 4 != 0) {
-            return false;
-        } else if (year % 400 == 0) {
+    public boolean leapYear(int y){
+        if ((y % 4 == 0) && (y % 100 != 0) || (y % 400 == 0))
             return true;
-        } else if (year % 100 == 0) {
+        else
             return false;
-        } else {
-            return true;
-        }
     }
 }
