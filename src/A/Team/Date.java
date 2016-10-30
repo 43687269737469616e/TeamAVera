@@ -15,28 +15,34 @@ public class Date {
 
     public void setDay(int day) {
         if (month == 4 || month == 6 || month == 9 || month == 11) {
-            do {
-                System.out.println("INVALID DAY INPUT");
-                System.out.println("Enter player's day of birth: ");
-                day = input.nextInt();
-                this.day = day;
-            } while (day < 1 || day > 30);
+            if (day < 1 || day > 30) {
+                do {
+                    System.out.println("INVALID DAY INPUT");
+                    System.out.println("Enter player's day of birth: ");
+                    day = input.nextInt();
+                    this.day = day;
+                } while (day < 1 || day > 30);
+            }
         }
 
-        if (month == 2 && leapYear(1980)) {
-            do {
-                System.out.println("INVALID DAY INPUT");
-                System.out.println("Enter player's day of birth: ");
-                day = input.nextInt();
-                this.day = day;
-            } while (day < 1 || day > 29);
+        if (month == 2 && leapYear(getYear())) {
+            if (day < 1 || day > 29) {
+                do {
+                    System.out.println("INVALID DAY INPUT");
+                    System.out.println("Enter player's day of birth: ");
+                    day = input.nextInt();
+                    this.day = day;
+                } while (day < 1 || day > 29);
+            }
         }else if (month == 2) {
-            do {
-                System.out.println("INVALID DAY INPUT");
-                System.out.println("Enter player's day of birth: ");
-                day = input.nextInt();
-                this.day = day;
-            } while (day < 1 || day > 28);
+            if (day < 1 || day > 28) {
+                do {
+                    System.out.println("INVALID DAY INPUT");
+                    System.out.println("Enter player's day of birth: ");
+                    day = input.nextInt();
+                    this.day = day;
+                } while (day < 1 || day > 28);
+            }
         }
         if (day < 1 || day > 31){
             do {
@@ -84,14 +90,9 @@ public class Date {
                 '}';
     }
 
-    public static boolean leapYear(int year){
-        if (year % 4 != 0) {
-            return false;
-        } else if (year % 100 == 0) {
-            return false;
-        } else if (year % 400 == 0)
-            return true;
-        else
-            return true;
+    public boolean leapYear(int year) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, year);
+        return cal.getActualMaximum(Calendar.DAY_OF_YEAR) > 365;
     }
 }
