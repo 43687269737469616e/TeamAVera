@@ -1,7 +1,7 @@
 package A.Team;
 
 import java.util.Scanner;
-
+import java.util.Calendar;
 
 public class Date {
     private int day;
@@ -23,16 +23,14 @@ public class Date {
             } while (day < 1 || day > 30);
         }
 
-        if (month == 2 && leapYear(getYear())) {
+        if (month == 2 && leapYear(1980)) {
             do {
                 System.out.println("INVALID DAY INPUT");
                 System.out.println("Enter player's day of birth: ");
                 day = input.nextInt();
                 this.day = day;
             } while (day < 1 || day > 29);
-        }
-
-        if (month == 2) {
+        }else if (month == 2) {
             do {
                 System.out.println("INVALID DAY INPUT");
                 System.out.println("Enter player's day of birth: ");
@@ -40,13 +38,14 @@ public class Date {
                 this.day = day;
             } while (day < 1 || day > 28);
         }
-        else
+        if (day < 1 || day > 31){
             do {
                 System.out.println("INVALID DAY INPUT");
                 System.out.println("Enter player's day of birth: ");
                 day = input.nextInt();
                 this.day = day;
             } while (day < 1 || day > 31);
+        }
 
         this.day = day;
     }
@@ -85,10 +84,14 @@ public class Date {
                 '}';
     }
 
-    public boolean leapYear(int y){
-        if ((y % 4 == 0) && (y % 100 != 0) || (y % 400 == 0))
+    public static boolean leapYear(int year){
+        if (year % 4 != 0) {
+            return false;
+        } else if (year % 100 == 0) {
+            return false;
+        } else if (year % 400 == 0)
             return true;
         else
-            return false;
+            return true;
     }
 }

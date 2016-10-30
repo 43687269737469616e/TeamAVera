@@ -6,6 +6,7 @@ public class Player {
     private Name name;
     private Date DOB;
     private double moneyBalance;
+    private static int numOfPlayers = 1; // Vera makes default of 1
 
     public Player(){
         name = new Name();
@@ -45,29 +46,56 @@ public class Player {
                 '}';
     }
 
-    public void addNewPlayer(){
-
+    public static int selectPlayer(Player slotPlayers[])
+    {
+        int result = 0;
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter player's first name: ");
-        name.setFirstName(input.next());
 
-        System.out.println("Enter player's middle initial: ");
-        name.setMiddleInitial(input.next().charAt(0));
+        // list players
+        for(int i=0;i<Player.numOfPlayers;i++)
+        {
+            System.out.println((i+1) + ". " +	slotPlayers[i].getName().getFirstName() + " " + slotPlayers[i].getName().getLastName());
+        }
 
-        System.out.println("Enter player's last name: ");
-        name.setLastName(input.next());
+        // select player number from list
+        System.out.print("Choose number of player to load: ");
+        result = input.nextInt();
+        result = result - 1; // converts selection from list to index number of player
 
-        System.out.println("Enter player's year of birth: ");
-        DOB.setYear(input.nextInt());
+        return result;
+    }
 
-        System.out.println("Enter player's month of birth: ");
-        DOB.setMonth(input.nextInt());
+    public static void addNewPlayer(Player slotPlayers[])
+    {
+        if(Player.numOfPlayers == 50)
+        {
+            System.out.println("Max players is 50. You cannot add more players");
+        }
 
-        System.out.println("Enter player's day of birth: ");
-        DOB.setDay(input.nextInt());
+        else
+        {
+            Player.numOfPlayers++;
+            Scanner input = new Scanner(System.in);
 
-        System.out.println("Enter player's starting money: ");
-        setMoneyBalance(input.nextInt());
+            System.out.println("Enter player's first name: ");
+            slotPlayers[numOfPlayers - 1].name.setFirstName(input.next());
+
+            System.out.println("Enter player's middle initial: ");
+            slotPlayers[numOfPlayers - 1].name.setMiddleInitial(input.next().charAt(0));
+
+            System.out.println("Enter player's last name: ");
+            slotPlayers[numOfPlayers - 1].name.setLastName(input.next());
+
+            System.out.println("Enter player's year of birth: ");
+            slotPlayers[numOfPlayers - 1].DOB.setYear(input.nextInt());
+
+            System.out.println("Enter player's month of birth: ");
+            slotPlayers[numOfPlayers - 1].DOB.setMonth(input.nextInt());
+
+            System.out.println("Enter player's day of birth: ");
+            slotPlayers[numOfPlayers - 1].DOB.setDay(input.nextInt());
+
+        }
     }
 
     public void loadVera(){
