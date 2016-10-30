@@ -54,7 +54,7 @@ public class Player {
         // list players
         for(int i=0;i<Player.numOfPlayers;i++)
         {
-            System.out.println((i+1) + ". " +	slotPlayers[i].getName().getFirstName() + " " + slotPlayers[i].getName().getLastName());
+            System.out.println((i+1) + ". " + slotPlayers[i].getName().getFirstName() + " " + slotPlayers[i].getName().getMiddleInitial() + " " + slotPlayers[i].getName().getLastName() + " " + slotPlayers[i].getName().getSuffix());
         }
 
         // select player number from list
@@ -78,13 +78,21 @@ public class Player {
             Scanner input = new Scanner(System.in);
 
             System.out.println("Enter player's first name: ");
-            slotPlayers[numOfPlayers - 1].name.setFirstName(input.next());
+            slotPlayers[numOfPlayers - 1].name.setFirstName(input.nextLine());
 
             System.out.println("Enter player's middle initial: ");
-            slotPlayers[numOfPlayers - 1].name.setMiddleInitial(input.next().charAt(0));
+            String holder = input.nextLine();
+            if(holder.length() != 0) {
+                holder = holder.toUpperCase();
+                slotPlayers[numOfPlayers - 1].name.setMiddleInitial(holder.charAt(0));
+            }
+            else slotPlayers[numOfPlayers - 1].name.setMiddleInitial('\0');
 
             System.out.println("Enter player's last name: ");
-            slotPlayers[numOfPlayers - 1].name.setLastName(input.next());
+            slotPlayers[numOfPlayers - 1].name.setLastName(input.nextLine());
+
+            System.out.println("Enter player's suffix: ");
+            slotPlayers[numOfPlayers - 1].name.setSuffix(input.nextLine());
 
             System.out.println("Enter player's year of birth: ");
             slotPlayers[numOfPlayers - 1].DOB.setYear(input.nextInt());

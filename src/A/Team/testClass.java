@@ -37,7 +37,7 @@ public class testClass {
             System.out.println("***              Vera Plays Vegas                   ***");
             System.out.println("***                 Main Menu                       ***");
             System.out.println("*******************************************************");
-            System.out.println("Current player:  " + slotPlayers[currentPlayerLoaded].getName().getFirstName() + " " + slotPlayers[currentPlayerLoaded].getName().getLastName());
+            System.out.println("Current player:  " + slotPlayers[currentPlayerLoaded].getName().getFirstName() + " " + slotPlayers[currentPlayerLoaded].getName().getMiddleInitial() + " " + slotPlayers[currentPlayerLoaded].getName().getLastName() + " " + slotPlayers[currentPlayerLoaded].getName().getSuffix());
             System.out.println("Current balance: " + slotPlayers[currentPlayerLoaded].getMoneyBalance());
             System.out.println("*******************************************************");
             System.out.println("A. Add a New Player");
