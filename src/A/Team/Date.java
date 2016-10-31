@@ -59,7 +59,7 @@ public class Date {
     public int getMonth() {
         return month;
     }
-
+    
     public void setMonth(int month) {
         if(month < 1 || month > 12) {
             do{
