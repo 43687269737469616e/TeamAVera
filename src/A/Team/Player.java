@@ -103,6 +103,9 @@ public class Player {
             System.out.println("Enter player's day of birth: ");
             slotPlayers[numOfPlayers - 1].DOB.setDay(input.nextInt());
 
+            System.out.println("Enter player's starting balance: ");
+            slotPlayers[numOfPlayers - 1].setMoneyBalance(input.nextDouble());
+
         }
     }
 
